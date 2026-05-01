@@ -1,11 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Chai</title>
-</head>
-<body>
-    <h1>All type of Chai</h1>
-</body>
-</html>
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-2xl font-bold text-center my-6">Chai List</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+    {% for chai in chais %}
+        <div class="bg-white p-4 rounded-lg shadow text-center">
+            
+            {% if chai.image %}
+                <img src="{{ chai.image.url }}" 
+                     class="w-full h-40 object-cover rounded">
+            {% endif %}
+            
+            <h3 class="mt-3 text-lg font-semibold">{{ chai.name }}</h3>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
